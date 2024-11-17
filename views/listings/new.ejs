@@ -1,0 +1,38 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3>Create a new List</h3>
+    <form method="POST" action="/listings" novalidate class="was-validation">                             <!--object name => listing KEY => title-->
+        <div class="mb-3">
+            <label for="title" class="form-lable">Title</label>
+            <input placeholder="Enter your name" name="listing[title]" class="form-control" required><br> 
+        </div>   
+        <div class="mb-3">
+            <label for="description" class="form-lable">description</label>
+            <textarea class="form-control" name="listing[description]" placeholder="Enter your text" rows="5" cols="20" required></textarea>
+        </div>                                                                                     
+        <div class="mb-3">
+            <label for="image" class="form-lable">image link</label>
+            <input class="form-control" name="listing[image]" placeholder="enter image url">
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-lable">Price</label>
+                <input class="form-control" name="listing[price]" placeholder="enter price" type="number" required>
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-lable">Country</label>
+                <input class="form-control" name="listing[country]" placeholder="Country" type="text" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-lable">Location</label>
+            <input class="form-control" name="listing[location]" placeholder="enter location" type="text" required>
+        </div>
+    
+        <button class="btn btn-dark add-btn mt-3">add</button>
+        <br><br>
+    </form>
+</div>
+</div>
+<!-- </html> -->
