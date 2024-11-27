@@ -103,6 +103,8 @@ body{
 
 .btns{
     display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .show-card{
