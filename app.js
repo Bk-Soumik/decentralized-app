@@ -6,8 +6,8 @@ const Listing = require("./models/listing.js");
 const Review = require("./models/review.js");
 const {listingSchema, reviewSchema} = require("./schema.js");                     //Joi
 const methodOverride = require("method-override");
-const wrapAsync = require("../utils/wrapAsync.js");
-const ExpressError = require("../utils/ExpressError.js");
+const wrapAsync = require("./utils/wrapAsync.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 const app = express();
 app.engine("ejs",ejsMate);
