@@ -4,11 +4,12 @@
     <div class="col-8 offset-3">
         <h3><%= listing.title %></h3>
     </div>
-    <div class="card col-6 offset-3 show-card">
+    <div class="card col-6 offset-3 show-card listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing">
             <div class="card-body">
             <p class="card-text">
                 <b><%= listing.title %></b><br>
+                <p class="card-text"><i><%= listing.owner.username %></i><br></p>
                 <%= listing.description %><br>
                 &#8377; <%= listing.price.toLocaleString("en-IN") %><br>
                 <%= listing.country %><br>
@@ -45,16 +46,23 @@
 
         <hr>
 
-        <h4>All Reviews</h4>
-        <ul>
-            <% if (listing.reviews.length > 0) { %>
-                <% for (review of listing.reviews) { %>
-                    <li><%= review.comment %>, <%= review.rating %> Star</li>
-                <% } %>
-            <% } else { %>
-                <li>No reviews available.</li>
-            <% } %>
-        </ul>
+        <p><b>All Reviews</b></p>
+
+        <div class="row">
+        <% for (review of listing.reviews) { %>
+            <div class="card col-5 ms-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Jane Doe</h5>
+                    <p class="card-text"><%= review.comment %></p>
+                    <p class="card-text"><%= review.raiting %> Stars</p>
+                </div>
+                <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                    <button class="btn btn-sm btn-dark">Delete</button>
+                </form>
+            </div>
+        <% } %>
+        </div>
+
     </div>
 </div>
 

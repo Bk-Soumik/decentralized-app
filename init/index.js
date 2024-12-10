@@ -18,6 +18,7 @@ async function main() {
 
 const initDB = async () => {                                      //Inserting Data to fatabase
   await Listing.deleteMany({});
+  initData.data = initData.data.map((obj) => ({ ...obj, owner: "3456766not inserted"}));
   await Listing.insertMany(initData.data);
   console.log("data was initialized");
 };

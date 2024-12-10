@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require('joi');                                     //server side validation schema
 
 module.exports.listingSchema = Joi.object({
     listing : Joi.object({
