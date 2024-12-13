@@ -11,23 +11,15 @@ router
     .get( wrapAsync(listingController.index))
     .post(isLoggedIn,validateListing, wrapAsync(listingController.createListing));
 
-//INDEX ROUTE
+    router.get("/new",isLoggedIn, listingController.renderNewForm);
 
-//NEW Route
-router.get("/new",isLoggedIn, listingController.renderNewForm);
-
-//SHOW Route
-router.get("/:id", wrapAsync(listingController.showListing));
-
-// CREATE Route
+router
+    .route("/:id")
+    .put( isLoggedIn, isOwner, validateListing, wrapAsync(listingController.updateListing))
+    .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyRoute))
+    .get( wrapAsync(listingController.showListing));
 
 // EDIT Route
 router.get("/:id/edit",isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
-
-// UPDATE Route
-router.put("/:id", isLoggedIn, isOwner, validateListing, wrapAsync(listingController.updateListing));
-
-// DELETE Route
-router.delete("/:id",isLoggedIn, isOwner, wrapAsync(listingController.destroyRoute));
 
 module.exports = router;
