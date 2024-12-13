@@ -80,7 +80,7 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(new localStrategy(User.authenticate()));
+passport.use(new localStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
